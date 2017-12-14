@@ -8,7 +8,7 @@
 var doubleArray = function(arr) {
   var result = [];
   for (var i = 0; i < arr.length; i++) {
-    result.push(arr[i] * 2); 
+    result.push(arr[i] * 2);
   }
   return result;
 };
@@ -111,7 +111,14 @@ var countAllStrings = function countAllStrings(array){
  * @param {Object}
  * @return {Array}
  */
-var convertToArray;
+
+
+var convertToArray = function convertToArray(object){
+
+  var array = (Object.values(object));
+  return array;
+};
+
 
 /* #objectSize
  *
@@ -120,7 +127,14 @@ var convertToArray;
  * @param {Object}
  * @return {Number}
  */
-var objectSize;
+
+
+var objectSize = function objectSize(object){
+
+  var length = Object.keys(object).length;
+  return length;
+};
+
 
 /* #createZeroFilledArray
  *
@@ -129,7 +143,16 @@ var objectSize;
  * @param {Number}
  * @return {Zero}
  */
-var createZeroFilledArray;
+
+var createZeroFilledArray = function createZeroFilledArray(number){
+  var zeroNum;
+  var array = [];
+  for(var i = 0; i < number; i++){
+    zeroNum = i - i;
+    array.push(zeroNum);
+  }return array;
+};
+
 
 /* #poppedArray
  *
@@ -138,7 +161,13 @@ var createZeroFilledArray;
  * @param {Array}
  * @return {Array}
  */
-var poppedArray;
+
+
+var poppedArray = function poppedArray(array){
+  array.pop();
+  return array;
+};
+
 
 /* #splitString
  *
@@ -147,7 +176,13 @@ var poppedArray;
  * @param {String}
  * @return {Array}
  */
-var splitString;
+
+
+var splitString = function splitString(string){
+  var letters = string.split("");
+  return letters;
+};
+
 
 /* #lengthOfLast
  *
@@ -306,7 +341,7 @@ var getKeys;
 
 /* #objectToArray
  *
- * Takes in an object and returns an array of tuples where each tuple has 
+ * Takes in an object and returns an array of tuples where each tuple has
  * the object's key as element 0 and object's value as element 1.
  *
  * @param {Object}
@@ -326,7 +361,7 @@ var arrayToObject;
 
 /* #arraysToObject
  *
- * takes in two arrays, the first array elements will be keys of an object and second array elements 
+ * takes in two arrays, the first array elements will be keys of an object and second array elements
  * will be values of an object.
  *
  * @param {Array}
@@ -367,7 +402,7 @@ var mapStringCounts;
 
 /* #arrayToObjectNums
  *
- * takes in an array of numbers and returns an object with keys set to 
+ * takes in an array of numbers and returns an object with keys set to
  * each element of the array and all values set to true.
  *
  * @param {Array}
@@ -378,7 +413,7 @@ var arrayToObjectNums;
 /* #stringToKeys
  *
  * takes in a string and returns an object whos keys are each letter of the string and all values set to true.
- * 
+ *
  * @param {String}
  * @return {Object}
  */
@@ -386,7 +421,7 @@ var stringToKeys;
 
 /* #charCountMap
  *
- * takes in an array of strings and returns an object with keys set to each element of the array 
+ * takes in an array of strings and returns an object with keys set to each element of the array
  * and values set to the character count of each key name.
  *
  * @param {Array}
@@ -405,7 +440,7 @@ var frequencyMap;
 
 /* #tupleConvertToObject
  *
- * takes in an array of tuples and and returns an object whos keys are 
+ * takes in an array of tuples and and returns an object whos keys are
  * the first element of the tuples and values are second element of the tuples.
  *
  * @param {String}
@@ -416,17 +451,17 @@ var tupleConvertToObject;
 
 module.exports = {
   doubleArray: doubleArray,
-  sumArrays: sumArrays, 
+  sumArrays: sumArrays,
   stringCount: stringCount,
   arrayLength: arrayLength,
   countAll: countAll,
   countStrings: countStrings,
   countAllStrings: countAllStrings,
-  convertToArray: null,
-  objectSize: null,
-  createZeroFilledArray: null,
-  poppedArray: null,
-  splitString: null,
+  convertToArray: convertToArray,
+  objectSize: objectSize,
+  createZeroFilledArray: createZeroFilledArray,
+  poppedArray: poppedArray,
+  splitString: splitString,
   lengthOfLast: null,
   sumBelowTen: null,
   moreThanTenLetters: null,
