@@ -191,7 +191,16 @@ var splitString = function splitString(string){
  * @param {String}
  * @return {Number}
  */
-var lengthOfLast;
+var lengthOfLast = function lengthOfLast(array){
+
+  var str = [];
+  var last = array.pop();
+  str.push(last);
+  var meow = last.split('');
+  var bark = meow.length;
+  return bark;
+};
+
 
 /* #sumBelowTen
  *
@@ -200,7 +209,18 @@ var lengthOfLast;
  * @param {Array}
  * @return {Number}
  */
-var sumBelowTen;
+var sumBelowTen = function sumBelowTen(array){
+  var tenOver = [];
+  var sum = 0;
+  for(var i = 0; i < array.length; i++){
+    if(array[i] <= 10){
+      sum = array[i] += sum;
+    }else{
+      tenOver.push(array[i]);
+    }
+  }return sum;
+};
+
 
 /* #moreThanTenLetters
  *
@@ -462,8 +482,8 @@ module.exports = {
   createZeroFilledArray: createZeroFilledArray,
   poppedArray: poppedArray,
   splitString: splitString,
-  lengthOfLast: null,
-  sumBelowTen: null,
+  lengthOfLast: lengthOfLast,
+  sumBelowTen: sumBelowTen,
   moreThanTenLetters: null,
   multiplyAll: null,
   getKeys: null,
