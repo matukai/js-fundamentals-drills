@@ -229,7 +229,17 @@ var sumBelowTen = function sumBelowTen(array){
  * @param {String}
  * @return {Number}
  */
-var moreThanTenLetters;
+var moreThanTenLetters = function eleven(array){
+  var tenUnder = 0;
+  var tenOver = 0;
+  for(var i = 0; i < array.length; i++){
+    if(array[i].length <= 10){
+      tenUnder = 1 + tenUnder;
+    }else{
+      tenOver = 1 + tenOver;
+    }
+  }return tenOver;
+};
 
 /* #multiplyAll
  *
@@ -238,7 +248,13 @@ var moreThanTenLetters;
  * @param {Array}
  * @return {Number}
  */
-var multiplyAll;
+var multiplyAll = function multiplyAll(array){
+  var product = 1;
+  for(var i = 0; i < array.length; i++){
+    product = product * array[i];
+  }console.log(product);
+  return product;
+};
 
 /* #getKeys
  *
@@ -247,7 +263,13 @@ var multiplyAll;
  * @param {Object}
  * @return {Array}
  */
-var getKeys;
+var getKeys = function displayKeys(object){
+  var array = [];
+  for(var prop in object){
+    array.push(prop);
+  }
+  return array;
+};
 
 /* #sumAllPositive
  *
@@ -256,7 +278,17 @@ var getKeys;
  * @param {String}
  * @return {Number}
  */
-var sumAllPositive;
+var sumAllPositive = function sumAllPositive(array){
+  var sum = 0;
+  var sumNeg = 0;
+  for(var i = 0; i < array.length; i++){
+    if(array[i] > 0){
+      sum = sum + array[i];
+    }else{
+      sumNeg = sum + array[i];
+    }
+  }return sum;
+};
 
 /* #stringCountBelowThree
  *
@@ -265,7 +297,17 @@ var sumAllPositive;
  * @param {Array}
  * @return {Number}
  */
-var stringCountBelowThree;
+var stringCountBelowThree = function stringCountBelowThree(array){
+  var three = 0;
+  var moreThanThree = 0;
+  for(var i = 0; i < array.length; i++ ){
+    if(array[i].length <= 3){
+      three = three + 1;
+    }else{
+      moreThanThree = moreThanThree + 1;
+    }
+  }return three;
+};
 
 /* #countObjects
  *
@@ -274,7 +316,13 @@ var stringCountBelowThree;
  * @param {Array}
  * @return {Number}
  */
-var countObjects;
+var countObjects = function objectCount(array){
+  var sum = 0;
+  for(var i = 0; i < array.length; i++){
+    sum = 1 + sum;
+  }
+  return sum;
+};
 
 /* #getObjectKeys
  *
@@ -283,7 +331,13 @@ var countObjects;
  * @param {Object}
  * @return {Array}
  */
-var getObjectKeys;
+var getObjectKeys = function getObjectKeys(object){
+  var array = [];
+  for(var prop in object){
+    array.push(prop);
+  }
+  return array;
+};
 
 /* #getObjectValues
  *
@@ -292,7 +346,13 @@ var getObjectKeys;
  * @param {Object}
  * @return {Array}
  */
-var getObjectValues;
+var getObjectValues = function getObjectValues(object){
+  var array = [];
+  for(var prop in object){
+    array.push(object[prop]);
+  }
+  return array;
+};
 
 /* #makeObject
  *
@@ -302,7 +362,11 @@ var getObjectValues;
  * @param {String}
  * @return {Object}
  */
-var makeObject;
+var makeObject = function makeObject(key,value){
+  var newObj = {};
+  newObj[key] = value;
+  return newObj;
+};
 
 /* #makeObjectReverse
  *
@@ -312,7 +376,11 @@ var makeObject;
  * @param {String}
  * @return {Bool}
  */
-var makeObjectReverse;
+var makeObjectReverse = function makeObjectReverse(value,key){
+  var newObj = {};
+  newObj[key] = value;
+  return newObj;
+};
 
 /* #tupleToObject
  *
@@ -484,21 +552,21 @@ module.exports = {
   splitString: splitString,
   lengthOfLast: lengthOfLast,
   sumBelowTen: sumBelowTen,
-  moreThanTenLetters: null,
-  multiplyAll: null,
-  getKeys: null,
-  sumAllPositive: null,
-  stringCountBelowThree: null,
-  countObjects: null,
-  getObjectKeys: null,
-  getObjectValues: null,
-  makeObject: null,
-  makeObjectReverse: null,
-  tupleToObject: null,
+  moreThanTenLetters: moreThanTenLetters,
+  multiplyAll: multiplyAll,
+  getKeys: getKeys,
+  sumAllPositive: sumAllPositive,
+  stringCountBelowThree: stringCountBelowThree,
+  countObjects: countObjects,
+  getObjectKeys: getObjectKeys,
+  getObjectValues: getObjectValues,
+  makeObject: makeObject,
+  makeObjectReverse: makeObjectReverse,
+  tupleToObject: tupleToObject,
   tupleToObjectReverse: null,
   strToKeys: null,
   getValues: null,
-  getKeys: null,
+  getKeys: getKeys,
   objectToArray: null,
   arrayToObject: null,
   arraysToObject: null,
@@ -510,4 +578,4 @@ module.exports = {
   charCountMap: null,
   frequencyMap: null,
   tupleConvertToObject: null
-}
+};
