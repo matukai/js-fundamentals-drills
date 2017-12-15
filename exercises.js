@@ -389,7 +389,12 @@ var makeObjectReverse = function makeObjectReverse(value,key){
  * @param {Array}
  * @return {Object}
  */
-var tupleToObject;
+var tupleToObject = function tupleToObject(array){
+  var obj = {};
+  for(var i = 0; i < array.length - 1 ; i++){
+    obj[array[i][0]] = array[i+1];
+  }return obj;
+};
 
 /* #tupleToObjectReverse
  *
@@ -398,7 +403,12 @@ var tupleToObject;
  * @param {Array}
  * @return {Object}
  */
-var tupleToObjectReverse;
+var tupleToObjectReverse = function tupleToObject(array){
+  var obj = {};
+  for(var i = 0; i < array.length - 1 ; i++){
+    obj[array[i+1]] = array[[i][0]];
+  }return obj;
+};
 
 /* #strToKeys
  *
@@ -407,7 +417,14 @@ var tupleToObjectReverse;
  * @param {Array}
  * @return {Object}
  */
-var strToKeys;
+var strToKeys = function strToKeys(array){
+  var obj = {};
+  var num = 0;
+  for(var i = 0; i < array.length; i++){
+    obj[array[i]] = num;
+  }
+  return obj;
+};
 
 /* #getValues
  *
@@ -416,7 +433,12 @@ var strToKeys;
  * @param {Object}
  * @return {Array}
  */
-var getValues;
+var getValues = function getValues(obj){
+  var arr = [];
+  for(var prop in obj){
+    arr.push(obj[prop]);
+  }return arr;
+};
 
 /* #getKeys
  *
@@ -435,7 +457,16 @@ var getKeys;
  * @param {Object}
  * @return {Array}
  */
-var objectToArray;
+var objectToArray =function objectToArray(obj){
+  var bigArray = [];
+  for(var prop in obj){
+    var arr = [];
+    arr.push(prop);
+    arr.push(obj[prop]);
+    bigArray.push(arr);
+  }
+return bigArray;
+};
 
 /* #arrayToObject
  *
@@ -563,11 +594,11 @@ module.exports = {
   makeObject: makeObject,
   makeObjectReverse: makeObjectReverse,
   tupleToObject: tupleToObject,
-  tupleToObjectReverse: null,
-  strToKeys: null,
-  getValues: null,
+  tupleToObjectReverse: tupleToObjectReverse,
+  strToKeys: strToKeys,
+  getValues: getValues,
   getKeys: getKeys,
-  objectToArray: null,
+  objectToArray: objectToArray,
   arrayToObject: null,
   arraysToObject: null,
   objectsToTuples: null,
